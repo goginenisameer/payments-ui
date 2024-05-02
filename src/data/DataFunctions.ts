@@ -30,7 +30,7 @@ export const getAllPayments : () => PaymentType[]
 
 export const getCountries = () :Promise<AxiosResponse<string[]>> => {
     return axios<string[]>({
-        url : "https://payments.multicode.uk/api/country",
+        url : `${serverUrl}k/api/country`,
         method: "GET",
         headers :  {'Accept': 'application/json'}
     })
@@ -44,8 +44,17 @@ export const getPaymentsForCountry= (country : string) :Promise<AxiosResponse<Pa
         url : `${serverUrl}/api/payment?country=${country}`,
         method: "GET",
         headers :  {'Accept': 'application/json'}
-    })
-
-   
+    })  
 }
+
+export const addNewTransaction= (payment : PaymentType) :Promise<AxiosResponse<PaymentType>> => {
+    return axios<PaymentType>({
+        url : `${serverUrl}/api/payment`,
+        method: "POST",
+        headers :  {'Accept': 'application/json', 'Content-Type':'application/json'},
+        data : payment
+    })  
+}
+
+
 
