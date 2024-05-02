@@ -63,6 +63,7 @@ const Transactions  = () : JSX.Element => {
     
     const countrySelector : JSX.Element = 
     <select id="countrySelector" onChange={changeCountry} value={selectedCountry}>
+        
         <option value="" disabled={true}  >--select--</option>
     {countryOptions}
     </select>;
